@@ -3,19 +3,19 @@ body {
   font-family: monospace;
   margin: 0;
   padding: 0;
-  background-color: #f8f8f8;
+  background-color:  #f3ece6;
   color: #333;
 }
 
 header, footer {
-  background-color: #222;
+  background-color: #e1d0c1;
   color: white;
   text-align: center;
-  padding: 1rem;
+  padding: 1rem 5rem 1rem 5rem;
 }
 
 main {
-  padding: 1rem;
+  padding: 1rem 5rem 1rem 5rem;
 }
 
 #input-section {
@@ -25,27 +25,90 @@ main {
 /* To-Do Karten */
 .todo-item {
   background-color: #fff;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
   margin-bottom: 0.5rem;
   border-radius: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, .5);
 }
 
 /* Buttons */
 button {
   margin-left: 0.5rem;
   cursor: pointer;
+  padding: .5rem;
+  border-radius: 8px;
+  border-width: 1px;
+  border-color: #6C3725;
+  background-color: #FDFBF6;
+}
+button:hover {
+  background-color: #F6EDE1;
+}
+
+input{
+  padding: .5rem;
+  border-radius: 8px;
+  border-width: 1px;
+  border-color: #6C3725;
+  background-color: #FDFBF6;
+}
+
+.priority{
+  padding: .5rem;
+  border-radius: 8px;
+  border-width: 1px;
+  border-color: #6C3725;
+  margin-left: .5rem;
+  background-color: #FDFBF6;
+}
+
+/* Controls inside todo items */
+.todo-item .controls button {
+  margin-left: 0.5rem;
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 0.25rem 0.5rem;
+}
+
+/* Done state: green background + strike-through */
+.todo-item.done {
+  background-color: #DFFCDC !important; /* light green */
+  border-left: 6px solid #dffcdc !important; /* dark green */
+}
+.todo-item.done .title {
+  text-decoration: line-through;
+  color: #0E6146;
+}
+
+/* Priority colors */
+.todo-item.priority-high {
+  border-left: 6px solid #FF958C; /* red */
+  background-color: #FFF1E8;
+}
+.todo-item.priority-medium {
+  border-left: 6px solid #FFD20A; /* yellow/orange */
+  background-color: #FFF9CE;
+}
+.todo-item.priority-low {
+  border-left: 6px solid #368EF9; /* green */
+  background-color: #D6F0FE;
 }
 
 /* Dark Mode */
 body.dark {
-  background-color: #111;
+  background-color: #232221;
   color: #eee;
 }
 
 body.dark .todo-item {
   background-color: #333;
+  color: #eee;
+}
+
+header.dark{
+  background-color: #33302e;
   color: #eee;
 }
