@@ -13,22 +13,48 @@ const tippsData = [
 
 // b) DOM-Elemente selektieren und auf Klick-Event lauschen
 const tipBox = document.getElementById('tip-box');
-const newTipBtn = // TODO: Selektiere den Button mit der noch zu vergebenden ID
-
+const newTipBtn = document.getElementById('new-tip-btn'); // Selektiere den Button mit der noch zu vergebenden ID
+let previousIndex = -1;
 // c) Funktion für dynamischen Inhalt und Event Listener verbinden
 function showRandomTip() {
     // TODO: Hier kommt die Logik für die Anzeige eines zufälligen Tipps rein.
     // 1. Eine zufällige Zahl zwischen 0 und der Länge des Arrays-1 generieren.
+    let randomIndex = Math.floor(Math.random() * tippsData.length);
+    console.log(randomIndex);
+    console.log(previousIndex);
     // 2. Den Tipp an diesem Index aus dem Array holen.
+    //let newTip = tippsData[randomIndex].text;
     // 3. Den Text des Tipps in die 'tipBox' schreiben.
+    //tipBox.textContent = newTip;
+    //Alternativ
+    // tipBox.innerText = '<p>${newTip}</p>';
+    if(randomIndex === previousIndex){
+        randomIndex = Math.floor(Math.random() * tippsData.length);
+        previousIndex = randomIndex;
+    }
+    else{
+        let newTip = tippsData[randomIndex].text;
+        tipBox.textContent = newTip;
+        previousIndex = randomIndex;
+    }
 }
 
 newTipBtn.addEventListener('click', () => {
     // Diese Funktion wird bei jedem Klick auf den Button aufgerufen
     console.log("Button geklickt!");
-    // showRandomTip(); // Wird aktiviert, sobald die Funktion implementiert ist.
+    showRandomTip(); // Wird aktiviert, sobald die Funktion implementiert ist.
 });
 
+function copy(){
+    navigator.clipboard.writeText(tipBox.textContent.trim());
+    copyTipBtn.textContent = "Text Kopiert";
+
+    setTimeout(function(){
+        copyTipBtn.textContent = "Kopieren";
+    }, 2000)
+}
+
+copyTipBtn.addEventListener('click', copy)
 
 // --- TEIL 2: Selbstständige Erweiterung ---
 

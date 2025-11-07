@@ -14,6 +14,7 @@ const tippsData = [
 
 function App() {
   const [currentTip, setCurrentTip] = useState("Klicke auf den Button, um einen Tipp zu erhalten!");
+  const [newTip, setNewTip] = useState("Gib hier deinen neuen Tipp ein...");
   const [lastTipIndex, setLastTipIndex] = useState(-1);
   const [isFading, setIsFading] = useState(false);
   const [copyButtonText, setCopyButtonText] = useState("📋 Kopieren");

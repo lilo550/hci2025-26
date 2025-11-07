@@ -39,3 +39,7 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+.btn-copy {
+    background-color: #bebebe;
+    color: rgb(0, 0, 0);
+}
